@@ -1,6 +1,6 @@
-import { Post } from "../models/Post";
+import { PostInterface } from "../models/Post";
 
-export const posts: Post[] = [
+export const posts: PostInterface[] = [
   {
     userId: 1,
     id: 1,

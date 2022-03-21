@@ -1,13 +1,13 @@
-import { Address } from "./Address";
-import { Company } from "./Company";
+import { AddressInterface } from "./Address";
+import { CompanyInterface } from "./Company";
 
-export interface User {
+export interface UserInterface {
   id: number;
   name: string;
   username: string;
   email: string;
   phone: string;
   website: string;
-  address: Address;
-  company: Company;
+  address: AddressInterface;
+  company: CompanyInterface;
 }

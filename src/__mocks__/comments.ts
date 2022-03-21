@@ -1,6 +1,6 @@
-import { Comment } from "../models/Comment";
+import { CommentInterface } from "../models/Comment";
 
-export const comments: Comment[] = [
+export const comments: CommentInterface[] = [
   {
     postId: 1,
     id: 1,
