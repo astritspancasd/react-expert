@@ -1,4 +1,4 @@
-import * as ls from "local-storage";
+import * as ls from 'local-storage';
 
 export const storage = {
   add: (key: string, value: string): void => {

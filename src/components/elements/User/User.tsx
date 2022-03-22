@@ -1,12 +1,13 @@
-import { FC } from "react";
-import { NavLink } from "react-router-dom";
-import { UserInterface } from "../../../models/User";
-import { IF } from "../../conditional/If/If";
+import { FC } from 'react';
+import { NavLink } from 'react-router-dom';
+import { UserInterface } from '../../../models/User';
+import { IF } from '../../conditional/If/If';
 
 type UserProps = {
   user: UserInterface;
   canNavigate?: boolean;
 };
+
 export const User: FC<UserProps> = (props) => {
   const { canNavigate = true } = props;
   const { id, name, username, email, phone, website, company, address } =

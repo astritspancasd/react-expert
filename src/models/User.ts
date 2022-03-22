@@ -1,5 +1,5 @@
-import { AddressInterface } from "./Address";
-import { CompanyInterface } from "./Company";
+import { AddressInterface } from './Address';
+import { CompanyInterface } from './Company';
 
 export interface UserInterface {
   id: number;

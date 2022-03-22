@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@containers": ["containers"], // this doesn't work for @pages/smth
+      "@containers/*": ["containers/*"],
+      "@components": ["components"],
+      "@components/*": ["components/*"],
+      "@utils": ["utils"],
+      "@utils/*": ["utils/*"],
+      "@routes": ["routes"],
+      "@providers/*": ["providers/*"],
+      "@__mocks__": ["__mocks__"],
+      "@models": ["models"]
+    }
+  }
+}

@@ -1,11 +1,8 @@
 {
+  "extends": "./tsconfig.path.json",
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -21,7 +18,5 @@
     "jsx": "react-jsx",
     "noImplicitAny": true /* dont allow any to be used*/
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src", "prettier.config.js"]
 }
