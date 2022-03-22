@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { CommentInterface } from '../../../models/Comment';
+import { CommentInterface } from '~/models';
 
 type CommentProps = {
   comment: CommentInterface;

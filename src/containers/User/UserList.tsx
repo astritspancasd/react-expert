@@ -1,5 +1,5 @@
-import { User } from '../../components/elements/User';
-import { users } from '../../__mocks__/users';
+import { User } from '~/components';
+import { users } from '~/__mocks__';
 
 export const UserList = () => {
   return (

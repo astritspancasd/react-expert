@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { NavLink } from 'react-router-dom';
-import { UserInterface } from '../../../models/User';
-import { IF } from '../../conditional/If/If';
+import { UserInterface } from '~/models';
+import { IF } from '~/components';
 
 type UserProps = {
   user: UserInterface;

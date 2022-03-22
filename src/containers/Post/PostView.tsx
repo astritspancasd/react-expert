@@ -1,10 +1,7 @@
 import { useParams } from 'react-router-dom';
-import { Comment } from '../../components/elements/Comment';
-import { Post } from '../../components/elements/Post';
-import { CommentInterface } from '../../models/Comment';
-import { PostInterface } from '../../models/Post';
-import { comments } from '../../__mocks__/comments';
-import { posts } from '../../__mocks__/posts';
+import { Comment, Post } from '~/components';
+import { CommentInterface, PostInterface } from '~/models';
+import { comments, posts } from '~/__mocks__';
 
 export const PostView = () => {
   const { postId } = useParams<{ postId: string }>();

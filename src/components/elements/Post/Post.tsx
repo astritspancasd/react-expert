@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { NavLink } from 'react-router-dom';
-import { PostInterface } from '../../../models/Post';
-import { IF } from '../../conditional/If/If';
+import { IF } from '~/components';
+import { PostInterface } from '~/models';
 
 type PostProps = {
   post: PostInterface;

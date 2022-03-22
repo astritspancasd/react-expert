@@ -1,5 +1,5 @@
-import { Post } from '../../components/elements/Post';
-import { posts } from '../../__mocks__/posts';
+import { Post } from '~/components';
+import { posts } from '~/__mocks__';
 
 export const PostList = () => {
   return (

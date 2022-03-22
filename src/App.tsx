@@ -1,10 +1,12 @@
-import { RouterProvider } from './providers/Router';
-import { AppRoutes } from './routes/AppRoutes';
+import { RouterProvider, AuthProvider } from '~/providers';
+import { AppRoutes } from '~/routes';
 
 const App = () => {
   return (
     <RouterProvider>
-      <AppRoutes />
+      <AuthProvider>
+        <AppRoutes />
+      </AuthProvider>
     </RouterProvider>
   );
 };
