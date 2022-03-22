@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import { UserList, UserView, PostView, PostList } from '~/containers';
+import { UserList, UserView, PostView, PostList, ObserverList } from '~/containers';
 
 export const AppRoutes = () => {
   return (
@@ -9,6 +9,7 @@ export const AppRoutes = () => {
         <Route path="/post/:postId" element={<PostView />} />
         <Route path="/users" element={<UserList />} />
         <Route path="/user/:userId" element={<UserView />} />
+        <Route path="/observers" element={<ObserverList />} />
       </Routes>
     </div>
   );
