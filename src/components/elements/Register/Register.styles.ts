@@ -37,7 +37,6 @@ export const FormInnerContainer = styled(Box)({
 
 export const StyledLink = styled(NavLink)({
   textDecoration: 'none',
-  color: theme.palette.common.black,
   fontSize: 14,
   '@media (max-width: 500px)': {
     display: 'block',

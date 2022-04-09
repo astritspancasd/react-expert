@@ -1,15 +1,8 @@
-import {
-  Button,
-  TextField,
-  Typography,
-  InputAdornment,
-  IconButton,
-} from '@mui/material';
+import { Button, TextField, Typography, InputAdornment } from '@mui/material';
 import {
   MailOutline as MailIcon,
   LockOutlined as LockIcon,
-  Visibility as VisibilityIcon,
-  VisibilityOff as VisibilityOffIcon,
+  AccountCircleOutlined as AccountIcon
 } from '@mui/icons-material';
 import {
   FormInnerContainer,
@@ -20,22 +13,9 @@ import {
   StyledLinkSection,
   StyledLogo,
   StyledLogoSection,
-} from './Login.styles';
-import React, { useState } from 'react';
-import { useAuthContext } from '~/providers';
+} from './Register.styles';
 
-export const LoginForm = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  const { login } = useAuthContext();
-
-  const togglePasswordVisibility = () => setIsVisible((state) => !state);
-
-  const onLogin = (e: React.FormEvent) => {
-    e.preventDefault();
-    login();
-  };
-
+export const RegisterForm = () => {
   return (
     <FormOuterContainer>
       <FormInnerContainer>
@@ -46,10 +26,44 @@ export const LoginForm = () => {
           />
         </StyledLogoSection>
         <StyledHeaderSection>
-          <Typography variant="h6">Sign in</Typography>
+          <Typography variant="h6">Sign up</Typography>
           <Typography variant="body2">We deliver better 🚀</Typography>
         </StyledHeaderSection>
-        <form onSubmit={onLogin}>
+        <form>
+          <StyledFormSection>
+            <TextField
+              placeholder="Name"
+              variant="outlined"
+              type="email"
+              size="small"
+              autoComplete="off"
+              fullWidth
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <AccountIcon />
+                  </InputAdornment>
+                ),
+              }}
+            />
+          </StyledFormSection>
+          <StyledFormSection>
+            <TextField
+              placeholder="Lastname"
+              variant="outlined"
+              type="email"
+              size="small"
+              autoComplete="off"
+              fullWidth
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <AccountIcon />
+                  </InputAdornment>
+                ),
+              }}
+            />
+          </StyledFormSection>
           <StyledFormSection>
             <TextField
               placeholder="Email"
@@ -71,7 +85,7 @@ export const LoginForm = () => {
             <TextField
               placeholder="Password"
               variant="outlined"
-              type={isVisible ? 'text' : 'password'}
+              type="password"
               size="small"
               autoComplete="off"
               fullWidth
@@ -81,23 +95,16 @@ export const LoginForm = () => {
                     <LockIcon />
                   </InputAdornment>
                 ),
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <IconButton onClick={togglePasswordVisibility}>
-                      {isVisible ? <VisibilityOffIcon /> : <VisibilityIcon />}
-                    </IconButton>
-                  </InputAdornment>
-                ),
               }}
             />
           </StyledFormSection>
           <StyledLinkSection>
-            <StyledLink to="/forgot-password">Forgot Password</StyledLink>
-            <StyledLink to="/sign-up">Sign Up</StyledLink>
+            <StyledLink to="/login">Login</StyledLink>
+            <StyledLink to="/about-us">About us</StyledLink>
           </StyledLinkSection>
           <StyledFormSection>
-            <Button variant="contained" color="primary" type="submit" fullWidth>
-              Sign in
+            <Button variant="contained" color="primary" fullWidth>
+              Sign up
             </Button>
           </StyledFormSection>
         </form>

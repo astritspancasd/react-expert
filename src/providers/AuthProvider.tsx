@@ -1,6 +1,7 @@
 import { FC, useState } from 'react';
 import { useContext } from 'react';
 import { createContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 type AuthProviderProps = {
   children: React.ReactNode;
@@ -16,11 +17,20 @@ export const useAuthContext = () => useContext(Context);
 
 export const AuthProvider: FC<AuthProviderProps> = (props) => {
   const { children } = props;
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
 
-  const login = () => setIsAuthenticated(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  const logout = () => setIsAuthenticated(false);
+  const navigate = useNavigate();
+
+  const login = () => {
+    setIsAuthenticated(true);
+    navigate('/posts');
+  };
+
+  const logout = () => {
+    setIsAuthenticated(false);
+    navigate('/login');
+  };
 
   return (
     <Context.Provider
