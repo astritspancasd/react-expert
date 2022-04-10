@@ -1,15 +1,21 @@
-import { RouterProvider, AuthProvider } from '~/providers';
+import {
+  RouterProvider,
+  AuthProvider,
+  ThemeProvider,
+  ReactQueryProvider,
+} from '~/providers';
 import { AppRoutes } from '~/routes';
-import { ThemeProvider } from './providers/ThemeProvider';
 
 const App = () => {
   return (
     <RouterProvider>
-      <AuthProvider>
-        <ThemeProvider>
-          <AppRoutes />
-        </ThemeProvider>
-      </AuthProvider>
+      <ReactQueryProvider>
+        <AuthProvider>
+          <ThemeProvider>
+            <AppRoutes />
+          </ThemeProvider>
+        </AuthProvider>
+      </ReactQueryProvider>
     </RouterProvider>
   );
 };

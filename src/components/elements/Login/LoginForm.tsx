@@ -21,20 +21,28 @@ import {
   StyledLogo,
   StyledLogoSection,
 } from './Login.styles';
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useAuthContext } from '~/providers';
+import { useFormik } from 'formik';
+import { useSigninMutation } from '~/services';
+import { AlertMessage } from '~/components/ui';
 
 export const LoginForm = () => {
   const [isVisible, setIsVisible] = useState(false);
 
-  const { login } = useAuthContext();
+  const { mutate: useSignin, isLoading, isError, isSuccess } = useSigninMutation();
 
   const togglePasswordVisibility = () => setIsVisible((state) => !state);
 
-  const onLogin = (e: React.FormEvent) => {
-    e.preventDefault();
-    login();
-  };
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      password: '',
+    },
+    onSubmit: (values) => {
+      useSignin({ email: values.email, password: values.password });
+    },
+  });
 
   return (
     <FormOuterContainer>
@@ -49,14 +57,19 @@ export const LoginForm = () => {
           <Typography variant="h6">Sign in</Typography>
           <Typography variant="body2">We deliver better 🚀</Typography>
         </StyledHeaderSection>
-        <form onSubmit={onLogin}>
+        {isError && <AlertMessage severity="error" />}
+        {isSuccess && <AlertMessage severity="success" />}
+        <form onSubmit={formik.handleSubmit}>
           <StyledFormSection>
             <TextField
               placeholder="Email"
               variant="outlined"
               type="email"
               size="small"
+              name="email"
               autoComplete="off"
+              value={formik.values.email}
+              onChange={formik.handleChange}
               fullWidth
               InputProps={{
                 startAdornment: (
@@ -74,6 +87,9 @@ export const LoginForm = () => {
               type={isVisible ? 'text' : 'password'}
               size="small"
               autoComplete="off"
+              name="password"
+              value={formik.values.password}
+              onChange={formik.handleChange}
               fullWidth
               InputProps={{
                 startAdornment: (
@@ -97,7 +113,7 @@ export const LoginForm = () => {
           </StyledLinkSection>
           <StyledFormSection>
             <Button variant="contained" color="primary" type="submit" fullWidth>
-              Sign in
+              {isLoading ? 'Loading...' : 'Sign in'}
             </Button>
           </StyledFormSection>
         </form>

@@ -12,8 +12,6 @@ import { useAuthContext } from '~/providers';
 export const AppRoutes = () => {
   const { isAuthenticated } = useAuthContext();
 
-  console.log(isAuthenticated);
-
   return (
     <div>
       <Routes>
